@@ -15,7 +15,8 @@ const fadeUp = {
 
 export default function HomePage() {
   const reports = getAllReports();
-  const featured = reports[0];
+  // 最新報告優先（按日期倒序）
+  const featured = [...reports].sort((a, b) => b.date.localeCompare(a.date))[0];
   const { methodology } = getSiteData();
 
   return (

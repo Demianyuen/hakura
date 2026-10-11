@@ -64,6 +64,8 @@ export default async function ReportDetailPage({ params }: { params: Promise<{ i
               ["模型版本", report.sections.models],
               ["方案數", report.sections.plans?.length],
               ["分析工具", report.sections.analytics?.length],
+              ["產品線", report.sections.products],
+              ["語言數", report.sections.languages],
             ]
               .filter(([, v]) => v !== undefined)
               .map(([label, v]) => (

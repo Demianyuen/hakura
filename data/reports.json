@@ -78,6 +78,46 @@
       "fullReportUrl": "/reports/suno-model-evolution"
     },
     {
+      "id": "elevenlabs-product-matrix",
+      "target": "ElevenLabs (elevenlabs.io)",
+      "title": "ElevenLabs 產品矩陣逆向：從語音合成到 ElevenMusic 的平台擴張",
+      "category": "AI Voice",
+      "date": "2026-10-11",
+      "tldr": "語音 AI 領域絕對頭部，逆向揭露 17 個產品線：Text-to-Speech、Voice Cloning、Voice Design、Dubbing（配音）、Sound Effects、Voice Isolator（人聲分離）、ElevenAgents（對話式 AI）、以及新進軍的 ElevenMusic。支援 29 種語言。6 檔訂閱（free/starter/creator/pro/scale/enterprise）。技術棧 Next.js + Vercel（自建 CDN eleven-public-cdn），分析棧為 PostHog + Sentry + GA4 + Intercom 的產品驅動型組合。",
+      "keyFindings": [
+        "17 個產品線逆向還原：TTS/語音克隆/語音設計/配音/音效/人聲分離/ElevenAgents 對話 AI/ElevenMusic（新進軍音樂，與 Suno/Mureka 正面交戰）",
+        "29 種語言支援（涵蓋歐洲、亞洲、中東主要語種）—— 多語言覆蓋是語音 AI 護城河",
+        "6 檔訂閱方案：free / starter / creator / pro / scale / enterprise —— 典型 PLG（產品驅動增長）+ 企業銷售雙軌",
+        "分析棧 PostHog(196) + Sentry(520) + GA4 + Intercom —— 產品分析與錯誤監控並重的 PLG 數據基建",
+        "技術設施：自建靜態 CDN（eleven-public-cdn.elevenlabs.io）+ Vercel 部署 + Apple/Google IAP"
+      ],
+      "sections": {
+        "techStack": "Next.js (App Router, Vercel 部署) + 自建 CDN（eleven-public-cdn）+ nginx 源站；73 chunks 靜態分析",
+        "apiEndpoints": 4,
+        "products": 17,
+        "languages": 29,
+        "plans": [
+          "free",
+          "starter",
+          "creator",
+          "pro",
+          "scale",
+          "enterprise"
+        ],
+        "analytics": [
+          "PostHog",
+          "Sentry",
+          "GA4/GTM",
+          "Intercom"
+        ],
+        "evidenceIds": [
+          "static-analysis:elevenlabs_bundles_73chunks",
+          "products:17_lines_tts_dubbing_agents_music"
+        ]
+      },
+      "fullReportUrl": "/reports/elevenlabs-product-matrix"
+    },
+    {
       "id": "losslesscut-aborted",
       "target": "LosslessCut",
       "title": "（已終止）LosslessCut 逆向分析",

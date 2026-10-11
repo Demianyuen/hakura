@@ -9,6 +9,8 @@ export interface ReportSection {
   models?: number;
   plans?: string[];
   analytics?: string[];
+  products?: number;
+  languages?: number;
   status?: string;
 }
 
