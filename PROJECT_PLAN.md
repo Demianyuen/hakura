@@ -26,10 +26,18 @@
 - [x] GitHub repo + Vercel 部署上線
 
 ### v1.1「市場驗證」— 目標 2026-11-11（4 週）
-- [ ] 3 份免費公開案例（Suno / Udio / ElevenLabs）
+- [x] 2 份公開案例：Mureka（10-11）、Suno（10-11）— 超出計劃（目標 3 份，已完成 2 份含 Suno 27 Chirp 模型譜系）
+- [x] lead 表單接入 Blob 持久化（2026-10-11）：/api/lead 寫入 Vercel Blob + /api/leads 管理讀取（CRON_SECRET 保護），端到端已實測
+- [x] 站內聯絡表單（ContactForm，狀態反饋 + 方案選擇）
 - [ ] V2EX / 即刻 / Twitter 發文測試市場水溫
-- [ ] lead 表單接入 KV 持久化（目前 console.log）
+- [ ] 第 3 份免費公開案例（ElevenLabs 或 Udio）
 - [ ] 至少 1 次付費意願對話（私信/郵件）
+
+**已上線功能（v1.0 + v1.1 增量）**：
+- 報告庫：2 份樣本（Mureka 增長棧逆向 / Suno 27 模型譜系 + credits 系統）
+- 委託管線：站內表單 → Vercel Blob（leads/YYYY-MM-DD.json）→ admin API 讀取
+- 自動化：Vercel cron 每週健康檢查 + 報告過期標記
+- 治理：PROJECT_PLAN.md（本檔案）
 
 ### v1.2「自動化管線」— 目標 2026-12-11（8 週）
 - [ ] Watchtower 自動化：Hermes cron 每週重跑既有報告的逆向管線
