@@ -6,6 +6,9 @@ export interface ReportSection {
   pixels?: string[];
   payments?: string[];
   evidenceIds?: string[];
+  models?: number;
+  plans?: string[];
+  analytics?: string[];
   status?: string;
 }
 

@@ -61,6 +61,9 @@ export default async function ReportDetailPage({ params }: { params: Promise<{ i
               ["組件數", report.sections.components],
               ["廣告帳號", report.sections.adAccounts],
               ["Pixel 數", report.sections.pixels?.length],
+              ["模型版本", report.sections.models],
+              ["方案數", report.sections.plans?.length],
+              ["分析工具", report.sections.analytics?.length],
             ]
               .filter(([, v]) => v !== undefined)
               .map(([label, v]) => (
@@ -70,6 +73,30 @@ export default async function ReportDetailPage({ params }: { params: Promise<{ i
                 </div>
               ))}
           </div>
+          {report.sections.plans && report.sections.plans.length > 0 && (
+            <div className="p-5">
+              <p className="text-ink-500 text-xs mb-2">SUBSCRIPTION TIERS</p>
+              <div className="flex flex-wrap gap-2">
+                {report.sections.plans.map((p) => (
+                  <span key={p} className="rounded bg-ink-700 px-2 py-1 text-xs text-amber-alert font-mono">
+                    {p}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+          {report.sections.analytics && report.sections.analytics.length > 0 && (
+            <div className="p-5">
+              <p className="text-ink-500 text-xs mb-2">ANALYTICS STACK</p>
+              <div className="flex flex-wrap gap-2">
+                {report.sections.analytics.map((p) => (
+                  <span key={p} className="rounded bg-ink-700 px-2 py-1 text-xs text-cyan-data">
+                    {p}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
           {report.sections.pixels && report.sections.pixels.length > 0 && (
             <div className="p-5">
               <p className="text-ink-500 text-xs mb-2">PIXELS / ANALYTICS</p>
