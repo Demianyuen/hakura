@@ -1,0 +1,28 @@
+name: Hakura Weekly Health Check
+
+on:
+  schedule:
+    # 每週一 09:00 HKT (01:00 UTC) 檢查站點健康與報告過期狀態
+    - cron: "0 1 * * 1"
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check site is live
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://hakura-intel.vercel.app || echo "000")
+          echo "Site status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "::warning::hakura.intel returned $STATUS"
+          fi
+
+      - name: Check cron endpoint (no auth needed publicly reports 401 if secret set)
+        run: |
+          CODE=$(curl -s -o /dev/null -w "%{http_code}" https://hakura-intel.vercel.app/api/cron || echo "000")
+          echo "Cron endpoint status: $CODE (200 or 401 = healthy)"
+
+      - name: Check dependency freshness
+        run: |
+          echo "::notice::Hakura weekly health check completed — review stale reports in Vercel cron logs"

@@ -1,0 +1,85 @@
+{
+  "reports": [
+    {
+      "id": "mureka-growth-teardown",
+      "target": "Mureka (mureka.ai / mureka.cn)",
+      "title": "Mureka 增長情報逆向：AI 音樂平台的買量棧、漏斗與產品版圖",
+      "category": "AI Music",
+      "date": "2026-10-11",
+      "tldr": "中國團隊的 AI 音樂生成平台（聲稱 10M 用戶），北極星指標是「生成行為」而非註冊。4 個 Google Ads 帳號 + Bing/TikTok/Reddit/OceanPay 全平台買量。產品已從音樂生成器轉型為視頻剪輯、語音克隆、stem 分離全家桶，並通過創作者聯盟 + B2B API 三軌變現。",
+      "keyFindings": [
+        "北極星指標 = 生成行為：generate_song 與 purchase 並列為 Google Ads 轉化事件",
+        "4 個 Google Ads 帳號並行買量，覆蓋 Bing + TikTok + Reddit + OceanPay（港澳閘道）",
+        "130+ 組件逆向：視頻剪輯、語音克隆、MV、Canvas、affiliate 聯盟、創作者計劃",
+        "團隊歸屬三證：騰訊 COS + 阿里雲 WAF + 中文追蹤事件名 = 中國團隊國際化部署",
+        "商業模式：Freemium 買量驅動 → Pro $24/月 → B2B API + 聯盟三軌"
+      ],
+      "sections": {
+        "techStack": "Vue 3 + Vite（主 bundle 1.21MB）、CloudFront CDN（TPE 台北節點）、騰訊 COS 靜態資源、阿里雲 WAF、串流生成（streamMessageId 確認）",
+        "apiEndpoints": 29,
+        "components": 130,
+        "adAccounts": 4,
+        "pixels": ["Bing Ads", "TikTok Pixel", "Reddit Pixel", "Yandex Metrika (disabled)"],
+        "payments": ["Stripe", "PayPal", "Apple IAP", "Google Play Billing", "OceanPay"],
+        "evidenceIds": [
+          "ev_5db099fb183be7507d883a77fa4c8cf1d331a326193253dd2a4645390c3c77ae",
+          "sha256:eb18cecfdfbbcc62e5fe07e8341528094f879a57c24993353af269bbb54db9c0"
+        ]
+      },
+      "fullReportUrl": "/reports/mureka"
+    },
+    {
+      "id": "losslesscut-aborted",
+      "target": "LosslessCut",
+      "title": "（已終止）LosslessCut 逆向分析",
+      "category": "Open Source Tool",
+      "date": "2026-10-11",
+      "tldr": "此案例因分析時長超出預期而終止，改為 Mureka 作為首個正式樣本。教訓已沉澱：大型 Electron repo 靜態分析耗時過長，SPA 網站應走「curl bundle → 靜態分析」路線。",
+      "keyFindings": ["分析超時終止", "方法論教訓已入 spa-web-teardown skill"],
+      "sections": { "status": "aborted" },
+      "fullReportUrl": null
+    }
+  ],
+  "methodology": {
+    "name": "Growth Intelligence Teardown",
+    "phases": [
+      { "phase": 1, "name": "基礎設施指紋", "tools": "HTTP headers、CDN/WAF/CSP 分析", "output": "團隊歸屬推論" },
+      { "phase": 2, "name": "增長棧逆向", "tools": "REA CDP 捕獲 GTM/GA4 容器配置", "output": "廣告帳號、轉化事件、北極星指標" },
+      { "phase": 3, "name": "技術架構逆向", "tools": "curl bundle → REA 靜態分析", "output": "框架、API 端點、組件版圖" },
+      { "phase": 4, "name": "商業情報綜合", "tools": "公開文檔 + 逆向證據交叉驗證", "output": "增長模式結論、復刻評估" }
+    ],
+    "evidenceStandard": "所有結論附 REA Evidence（sha256 可驗證），公開資訊單獨標註",
+    "legalBoundary": "僅公開頁面 + 自己帳戶，不破解付費牆、不繞 WAF、不批量爬取"
+  },
+  "services": [
+    {
+      "tier": "Recon",
+      "price": "$99",
+      "unit": "/ report",
+      "tagline": "快速競品指紋",
+      "includes": ["1 個目標站點", "增長棧逆向（GTM/GA4/pixels）", "基礎設施與團隊歸屬", "24 小時交付", "PDF 報告"],
+      "cta": "適合：快速摸底競爭對手"
+    },
+    {
+      "tier": "Teardown",
+      "price": "$399",
+      "unit": "/ report",
+      "tagline": "完整情報拆解（最受歡迎）",
+      "includes": ["Recon 全部內容", "技術架構逆向（API 端點 + 組件版圖）", "完整增長漏斗圖", "定價與閹割矩陣", "復製可行性評估", "48 小時交付", "PDF + Evidence JSON 原始數據"],
+      "cta": "適合：產品經理、投資人、獨立開發者"
+    },
+    {
+      "tier": "Watchtower",
+      "price": "$149",
+      "unit": "/ month",
+      "tagline": "持續監控 3–5 個競品",
+      "includes": ["每週自動重跑 Teardown", "變化警報（新廣告帳號、定價變更、新功能組件）", "Telegram 即時推送", "月度趨勢摘要", "對話式問答（Ask 關於你的競品）"],
+      "cta": "適合：需要持續情報的團隊"
+    }
+  ],
+  "roadmap": [
+    { "quarter": "2026 Q4", "milestone": "Mureka 樣本上線 + 3 個免費案例（Suno/Udio/ElevenLabs）驗證市場" },
+    { "quarter": "2027 Q1", "milestone": "Watchtower 自動化管線（REA + Hermes cron 每週重跑）" },
+    { "quarter": "2027 Q2", "milestone": "Ask 功能（對話式競品情報查詢）+ 行業數據庫" }
+  ]
+}
