@@ -1,0 +1,97 @@
+{
+  "title": "AI 內容生成三賽道對比",
+  "subtitle": "音樂生成 × 語音合成 —— 三大頭部產品的增長與技術策略橫切分析",
+  "targets": ["Mureka", "Suno", "ElevenLabs"],
+  "dimensions": [
+    {
+      "label": "賽道定位",
+      "values": {
+        "Mureka": "AI 音樂生成（歌曲 + 視頻全家桶）",
+        "Suno": "AI 音樂生成（全鏈條創作平台）",
+        "ElevenLabs": "語音 AI 平台（TTS/克隆/配音/對話 Agent）"
+      }
+    },
+    {
+      "label": "核心商業模式",
+      "values": {
+        "Mureka": "Freemium + 買量驅動 + 創作者聯盟 + B2B API",
+        "Suno": "5 檔訂閱 + credits 點數制（auto-reload + top-ups）",
+        "ElevenLabs": "PLG（產品驅動增長）+ 6 檔訂閱 + 企業銷售"
+      }
+    },
+    {
+      "label": "方案檔位",
+      "values": {
+        "Mureka": "3 檔（免費 / Basic $8 / Pro $24）",
+        "Suno": "5 檔（free/basic/pro/premier/studio）",
+        "ElevenLabs": "6 檔（free/starter/creator/pro/scale/enterprise）"
+      }
+    },
+    {
+      "label": "技術棧",
+      "values": {
+        "Mureka": "Vue 3 + Vite + 騰訊 COS + 阿里 WAF + CloudFront",
+        "Suno": "Next.js + Turbopack + Cloudflare（93 chunks）",
+        "ElevenLabs": "Next.js + 自建 CDN（eleven-public-cdn）+ nginx"
+      }
+    },
+    {
+      "label": "模型/版本線索",
+      "values": {
+        "Mureka": "V7.5 / O1 / 9.5（docs 聲稱 + bundle 預埋）",
+        "Suno": "27 個 Chirp 版本（v3.0 到 v4.5+，含 turbo/tau 變體）",
+        "ElevenLabs": "多語言模型矩陣（29 語言）+ ElevenMusic（新賽道）"
+      }
+    },
+    {
+      "label": "分析棧",
+      "values": {
+        "Mureka": "GA4x2 + Google Adsx4 + Bing + TikTok + Reddit + OceanPay",
+        "Suno": "Amplitude + Segment + Sentry + GA4",
+        "ElevenLabs": "PostHog + Sentry + GA4 + Intercom"
+      }
+    },
+    {
+      "label": "增長打法",
+      "values": {
+        "Mureka": "重金買量（4 Ads 帳號全平台覆蓋）",
+        "Suno": "PLG + 病毒傳播（分享 / feed v3）",
+        "ElevenLabs": "PLG + 開發者生態（API 優先）"
+      }
+    },
+    {
+      "label": "團隊背景推論",
+      "values": {
+        "Mureka": "中國團隊國際化（騰訊 COS + 阿里 WAF + 中文事件名）",
+        "Suno": "美國團隊（Vercel/Cloudflare 美系棧）",
+        "ElevenLabs": "美國團隊（紐約，Vercel + Intercom 美系 SaaS 棧）"
+      }
+    },
+    {
+      "label": "橫向擴張信號",
+      "values": {
+        "Mureka": "音樂 - 視頻剪輯 - Canvas - 語音克隆（全家桶）",
+        "Suno": "音樂 - 視頻生成（四模式）- 用戶自訓練模型",
+        "ElevenLabs": "語音 - 對話 Agent - Music（反向入侵音樂賽道）"
+      }
+    }
+  ],
+  "insights": [
+    {
+      "title": "點數制 vs 閹割制",
+      "body": "Suno 用 credits 點數制（生成消耗點數 + 自動充值）將用量變成可控成本；Mureka 用生成量 + 格式閹割更直白；ElevenLabs 用字符額度。點數制對重度用戶 ARPU 更高，且 auto-reload 把續費從被動變主動。"
+    },
+    {
+      "title": "買量 vs PLG 的分水嶺",
+      "body": "Mureka 是重金買量打法（4 個 Ads 帳號 + 全平台 pixel），追求規模速度；Suno 與 ElevenLabs 走 PLG（產品驅動增長），靠產品力與開發者/分享生態自增長。兩條路的資金效率與護城河邏輯完全不同。"
+    },
+    {
+      "title": "賽道邊界正在消失",
+      "body": "ElevenLabs（語音起家）反向進軍 ElevenMusic；Mureka（音樂起家）橫擴視頻剪輯與語音克隆；Suno（音樂）擴視頻生成與用戶自訓練模型。三家都在變成 AI 內容生成全家桶，未來正面戰場會重疊。"
+    },
+    {
+      "title": "迭代節奏 = 競爭烈度指標",
+      "body": "Suno 27 個 Chirp 版本號揭露其近乎月更的迭代頻率；ElevenLabs 29 語言矩陣顯示多語言是其護城河；Mureka 模型版本線索較少（可能側重產品功能而非模型宣傳）。迭代頻率與模型數量直接反映賽道競爭烈度。"
+    }
+  ]
+}

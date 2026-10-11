@@ -17,6 +17,9 @@ export default function Navbar() {
           <Link href="/reports" className="text-ink-500 hover:text-signal-400 transition-colors">
             reports
           </Link>
+          <Link href="/compare" className="text-ink-500 hover:text-signal-400 transition-colors">
+            compare
+          </Link>
           <Link href="/methodology" className="text-ink-500 hover:text-signal-400 transition-colors">
             methodology
           </Link>

@@ -158,6 +158,39 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── 賽道對比入口 ── */}
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <motion.div {...fadeUp}>
+          <Link
+            href="/compare"
+            className="block rounded-xl border border-ink-700 bg-ink-900 p-8 hover:border-signal-500 transition-colors group"
+          >
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="flex-1">
+                <p className="font-mono text-signal-400 text-sm mb-2 tracking-widest">[ CROSS-TARGET COMPARISON ]</p>
+                <h2 className="text-2xl font-bold text-white group-hover:text-signal-400 transition-colors mb-3">
+                  AI 內容生成三賽道對比
+                </h2>
+                <p className="text-ink-500 leading-relaxed max-w-2xl">
+                  Mureka × Suno × ElevenLabs —— 9 個維度橫切（商業模式、變現鉸鏈、技術棧、增長打法、團隊背景…）+
+                  4 條戰略洞察。音樂與語音賽道的邊界正在消失，這是原因。
+                </p>
+              </div>
+              <div className="flex gap-3 font-mono text-sm shrink-0">
+                {["Mureka", "Suno", "ElevenLabs"].map((t) => (
+                  <span key={t} className="rounded-lg border border-ink-600 px-3 py-2 text-ink-500">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <p className="mt-5 font-mono text-sm text-signal-400 inline-flex items-center gap-1.5">
+              查看橫切對比 <ArrowRight className="w-3.5 h-3.5" />
+            </p>
+          </Link>
+        </motion.div>
+      </section>
+
       {/* ── CTA ── */}
       <section id="contact" className="border-t border-ink-700 bg-gradient-to-b from-ink-900 to-ink-950">
         <div className="mx-auto max-w-6xl px-6 py-24">
