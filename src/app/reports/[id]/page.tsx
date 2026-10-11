@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getAllReports, getReportById } from "@/lib/data";
 
@@ -7,6 +8,22 @@ export function generateStaticParams() {
   return getAllReports()
     .filter((r) => r.fullReportUrl)
     .map((r) => ({ id: r.id }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const report = getReportById(id);
+  if (!report) return { title: "報告未找到" };
+  return {
+    title: `${report.target} 拆解報告`,
+    description: report.tldr,
+    openGraph: {
+      title: report.title,
+      description: report.tldr,
+      type: "article",
+      publishedTime: report.date,
+    },
+  };
 }
 
 export default async function ReportDetailPage({ params }: { params: Promise<{ id: string }> }) {
