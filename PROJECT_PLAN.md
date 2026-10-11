@@ -34,7 +34,8 @@
 - [ ] 至少 1 次付費意願對話（私信/郵件）
 
 **已上線功能（v1.0 + v1.1 增量）**：
-- 報告庫：2 份樣本（Mureka 增長棧逆向 / Suno 27 模型譜系 + credits 系統）
+- 報告庫：3 份樣本（Mureka 增長棧逆向 / Suno 27 模型譜系 + credits 系統 / ElevenLabs 17 產品線 + 29 語言）
+- 賽道對比：/compare 橫切頁（9 維度 × 3 目標 + 4 條戰略洞察）
 - 委託管線：站內表單 → Vercel Blob（leads/YYYY-MM-DD.json）→ admin API 讀取
 - 自動化：Vercel cron 每週健康檢查 + 報告過期標記
 - 治理：PROJECT_PLAN.md（本檔案）
