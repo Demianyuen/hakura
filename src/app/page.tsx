@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ShieldCheck, FileSearch, Cpu, Terminal, Radar } from "lucide-react";
+import { ArrowRight, ShieldCheck, FileSearch, Terminal, Radar } from "lucide-react";
 import { getAllReports, getSiteData } from "@/lib/data";
+import ContactForm from "@/components/ContactForm";
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -158,31 +159,40 @@ export default function HomePage() {
 
       {/* ── CTA ── */}
       <section id="contact" className="border-t border-ink-700 bg-gradient-to-b from-ink-900 to-ink-950">
-        <div className="mx-auto max-w-6xl px-6 py-24 text-center">
-          <motion.div {...fadeUp}>
-            <Radar className="w-10 h-10 text-signal-400 mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              想知道你的競品<span className="text-signal-400">點樣增長</span>？
-            </h2>
-            <p className="text-ink-500 max-w-xl mx-auto mb-8">
-              告訴我們目標域名，48 小時內交付附證據的完整拆解報告。
-              不滿意全額退款。
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a
-                href="mailto:intel@hakura.dev?subject=Teardown%20Inquiry"
-                className="inline-flex items-center gap-2 rounded-lg bg-signal-500 px-8 py-3.5 font-mono font-semibold text-ink-950 hover:bg-signal-400 transition-colors glow-signal"
-              >
-                <Cpu className="w-4 h-4" /> intel@hakura.dev
-              </a>
-              <Link
-                href="/pricing"
-                className="inline-flex items-center gap-2 rounded-lg border border-ink-600 px-8 py-3.5 font-mono text-ink-500 hover:border-signal-500 hover:text-signal-400 transition-colors"
-              >
-                查看定價 <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </motion.div>
+        <div className="mx-auto max-w-6xl px-6 py-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <motion.div {...fadeUp}>
+              <Radar className="w-10 h-10 text-signal-400 mb-6" />
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                想知道你的競品<span className="text-signal-400">點樣增長</span>？
+              </h2>
+              <p className="text-ink-500 mb-6 leading-relaxed">
+                告訴我們目標域名，48 小時內交付附證據的完整拆解報告。
+                不滿意全額退款。
+              </p>
+              <div className="space-y-3 font-mono text-sm">
+                {[
+                  ["01", "提交目標域名與方案"],
+                  ["02", "48h 內交付 PDF + Evidence JSON"],
+                  ["03", "不滿意全額退款"],
+                ].map(([n, t]) => (
+                  <div key={n} className="flex items-center gap-3">
+                    <span className="text-signal-400 font-bold">{n}</span>
+                    <span className="text-ink-500">{t}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-6 font-mono text-sm text-ink-500">
+                或直接電郵{" "}
+                <a href="mailto:intel@hakura.dev" className="text-signal-400 hover:underline">
+                  intel@hakura.dev
+                </a>
+              </p>
+            </motion.div>
+            <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.15 }}>
+              <ContactForm />
+            </motion.div>
+          </div>
         </div>
       </section>
     </>
