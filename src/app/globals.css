@@ -9,9 +9,8 @@
   --color-ink-500: #3a4252;
   --color-signal-400: #4ade80;
   --color-signal-500: #22c55e;
-  --color-signal-600: #16a34a;
-  --color-amber-alert: #fbbf24;
   --color-cyan-data: #22d3ee;
+  --color-amber-alert: #fbbf24;
   --font-mono: "JetBrains Mono", "SFMono-Regular", "Consolas", monospace;
 }
 
@@ -25,17 +24,31 @@ body {
 }
 
 ::selection {
-  background: var(--color-signal-500);
-  color: var(--color-ink-950);
+  background: #ec4899;
+  color: white;
 }
 
-.grid-bg {
-  background-image:
-    linear-gradient(to right, rgba(58, 66, 82, 0.25) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(58, 66, 82, 0.25) 1px, transparent 1px);
-  background-size: 48px 48px;
+/* Hide scrollbar for horizontal chip rows */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.glow-signal {
-  box-shadow: 0 0 24px rgba(34, 197, 94, 0.35);
+/* Range input styling */
+input[type="range"] {
+  appearance: none;
+  background: var(--color-ink-600);
+  border-radius: 999px;
+  height: 4px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
 }

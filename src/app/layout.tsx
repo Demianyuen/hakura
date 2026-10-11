@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import GlobalPlayer from "@/components/GlobalPlayer";
+import { PlayerProvider } from "@/lib/player";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,13 +17,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "hakura.intel — Growth Intelligence Teardown",
-    template: "%s — hakura.intel",
+    default: "Hakura — AI 音樂生成平台",
+    template: "%s — Hakura",
   },
   description:
-    "Evidence-backed competitive intelligence. 我們逆向拆解競品的增長棧、技術架構與商業模式，每個結論附可驗證證據（sha256）。",
-  keywords: ["competitive intelligence", "reverse engineering", "teardown", "growth hacking", "競品分析", "逆向工程"],
-  authors: [{ name: "hakura.intel" }],
+    "Hakura：AI 原生音樂創作平台。一句描述、一段歌詞，生成完整歌曲。探索社群作品，混音、擴展、重新演繹。",
+  keywords: ["AI music", "音樂生成", "song generator", "AI 作曲", "Hakura"],
   metadataBase: new URL("https://hakura-intel.vercel.app"),
   alternates: {
     canonical: "/",
@@ -30,16 +30,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "zh_HK",
-    siteName: "hakura.intel",
-    title: "hakura.intel — Growth Intelligence Teardown",
-    description: "看見競品不想讓你看見的東西：增長棧、技術架構、商業模式 —— 每個結論附可驗證證據。",
-    url: "https://hakura-intel.vercel.app",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "hakura.intel — Growth Intelligence Teardown",
-    description: "看見競品不想讓你看見的東西。證據驅動的競品情報逆向服務。",
+    siteName: "Hakura",
+    title: "Hakura — AI 音樂生成平台",
+    description: "一句描述、一段歌詞，生成完整歌曲。",
   },
   robots: { index: true, follow: true },
 };
@@ -50,10 +43,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="zh-Hant"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-ink-950 text-[#d4d9e1]">
-        <Navbar />
-        <main className="flex-1 pt-14">{children}</main>
-        <Footer />
+      <body className="min-h-full flex flex-col bg-ink-950 text-[#d4d9e1] pb-20">
+        <PlayerProvider>
+          <Navbar />
+          <main className="flex-1 pt-14">{children}</main>
+          <GlobalPlayer />
+        </PlayerProvider>
       </body>
     </html>
   );
